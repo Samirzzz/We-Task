@@ -82,5 +82,11 @@ namespace basic.WebAPI.Controllers
             var userId = User.FindFirst("userId")?.Value;
             return Ok("userId: " + userId);  
         }
+        [HttpGet("getusergrouprole")]
+        public async Task<IActionResult> GetUserGroupRole(int userId)
+        {
+            var result = _authService.getUserGroupRole(userId);
+            return Ok(result);
+        }
     }
 }

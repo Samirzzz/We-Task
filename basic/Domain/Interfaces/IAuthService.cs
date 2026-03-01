@@ -1,5 +1,6 @@
 using basic.Domain.Models;
 using basic.Application.shared;
+using basic.Application.DTOs;
 namespace basic.Domain.Interfaces{
 public interface IAuthService{
     Response<User> Register(User user);
@@ -11,5 +12,7 @@ public interface IAuthService{
     Response<List<string>> getusergroups(int userId);
     Response<string> Login(string email, string password);
     string generateToken(User user);
+    Response<List<UserGroupRoleDto>> getUserGroupRole(int userId);
+
 }
 }

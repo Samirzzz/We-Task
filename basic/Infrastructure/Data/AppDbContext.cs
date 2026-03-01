@@ -1,4 +1,5 @@
 using basic.Domain.Models;
+using basic.Application.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace basic.Infrastructure.Data
@@ -15,8 +16,10 @@ namespace basic.Infrastructure.Data
         public DbSet<Usergroups> Usergroups { get; set; }
         public DbSet<roles> Roles { get; set; }
         public DbSet<userPermission> Userpermissions { get; set; }
-        
-        
-    }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserGroupRoleDto>().HasNoKey();
+        }
+    }
 }

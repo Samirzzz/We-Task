@@ -5,7 +5,10 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using basic.Application.shared;
-
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using basic.Application.DTOs;
+using basic.Infrastructure.Data;
 namespace basic.Application.Services
 {
     public class AuthService : IAuthService
@@ -20,8 +23,10 @@ namespace basic.Application.Services
         private readonly IUserRepository _userRepository;
         private readonly IGroupRepository _groupRepository;
         private readonly IConfiguration _configuration;
-private readonly IUnitOfWork _unitOfWork;
-        public AuthService(IRepository<User> genericUserRepository, IRepository<Groups> genericGroupsRepository, IUserRepository userRepository, IGroupRepository groupRepository, IUnitOfWork unitOfWork, IRepository<roles> genericRolesRepository, IGroupRolesRepository groupRolesRepository, IUserGroupsRepository userGroupsRepository, IRepository<Usergroups> genericUserGroupsRepository, IRepository<Grouproles> genericGroupRolesRepository, IConfiguration configuration)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly AppDbContext _context;
+
+        public AuthService(IRepository<User> genericUserRepository, IRepository<Groups> genericGroupsRepository, IUserRepository userRepository, IGroupRepository groupRepository, IUnitOfWork unitOfWork, IRepository<roles> genericRolesRepository, IGroupRolesRepository groupRolesRepository, IUserGroupsRepository userGroupsRepository, IRepository<Usergroups> genericUserGroupsRepository, IRepository<Grouproles> genericGroupRolesRepository, IConfiguration configuration, AppDbContext context)
         {
             _genericUserRepository = genericUserRepository;
             _genericGroupsRepository = genericGroupsRepository;
@@ -34,6 +39,7 @@ private readonly IUnitOfWork _unitOfWork;
             _genericUserGroupsRepository = genericUserGroupsRepository;
             _genericGroupRolesRepository = genericGroupRolesRepository;
             _configuration = configuration;
+            _context = context;
         }
 
         public Response<User> Register(User user)
@@ -136,6 +142,13 @@ public Response<roles> AddRole(roles role)
        return tokenHandler.WriteToken(token);
         }
 
-
+     public Response<List<UserGroupRoleDto>> getUserGroupRole(int userId){
+         var userGroupRoles =  _context
+        .Set<UserGroupRoleDto>()
+        .FromSqlRaw("EXEC getusergroupsandroles @UserId",
+            new SqlParameter("@UserId", userId))
+        .ToList();
+        return new Response<List<UserGroupRoleDto>>(message: "User group roles found", data: userGroupRoles);
+    }
     }
 }
