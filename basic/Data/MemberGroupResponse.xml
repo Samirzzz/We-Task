@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:NS1="http://example.com/balance/schema">
+
+    <soapenv:Header/>
+
+    <soapenv:Body>
+        <NS1:ResponseBody>
+            <NS1:MemberGroup>
+
+                <Subscriber>
+                    <FreeUnitUsages>
+
+                        <FreeUnitUsage>
+                            <FreeUnitName>TED Primary Fixed Data</FreeUnitName>
+                            <FreeUnitType>C_TED_Primary_Fixed_Data</FreeUnitType>
+                            <UnitMeasurementId>1106</UnitMeasurementId>
+                            <UnitMeasurementName>MB</UnitMeasurementName>
+                            <UnitsInitialNumber>102</UnitsInitialNumber>
+                            <UnitsUnUsedAmount>102</UnitsUnUsedAmount>
+                            <FreeUnitDetails>
+                                <FreeUnitDetails>
+                                    <FreeUnitInstanceId>194100000005428492</FreeUnitInstanceId>
+                                    <FreeUnitInitialAmount>102</FreeUnitInitialAmount>
+                                    <FreeUnitCurrentAmount>102</FreeUnitCurrentAmount>
+                                    <EffectiveDate>20260131220000</EffectiveDate>
+                                    <ExpiryDate>20260228220000</ExpiryDate>
+                                    <FreeUnitOrigin>
+                                        <FreeUnitOriginType>1</FreeUnitOriginType>
+                                        <OfferingKey>
+                                            <OfferingId>460474730</OfferingId>
+                                            <PurchaseSeq>201993659883396</PurchaseSeq>
+                                        </OfferingKey>
+                                    </FreeUnitOrigin>
+                                    <RollOverFlag>N</RollOverFlag>
+                                </FreeUnitDetails>
+                            </FreeUnitDetails>
+                        </FreeUnitUsage>
+
+                        <FreeUnitUsage>
+                            <FreeUnitName>Zero-FixedData</FreeUnitName>
+                            <FreeUnitType>C_Zero_FixedData</FreeUnitType>
+                            <UnitMeasurementId>1106</UnitMeasurementId>
+                            <UnitMeasurementName>MB</UnitMeasurementName>
+                            <UnitsInitialNumber>10240</UnitsInitialNumber>
+                            <UnitsUnUsedAmount>10240</UnitsUnUsedAmount>
+                            <FreeUnitDetails>
+                                <FreeUnitDetails>
+                                    <FreeUnitInstanceId>194100000005258074</FreeUnitInstanceId>
+                                    <FreeUnitInitialAmount>10240</FreeUnitInitialAmount>
+                                    <FreeUnitCurrentAmount>10240</FreeUnitCurrentAmount>
+                                    <EffectiveDate>20260130220000</EffectiveDate>
+                                    <ExpiryDate>20260301220000</ExpiryDate>
+                                    <FreeUnitOrigin>
+                                        <FreeUnitOriginType>1</FreeUnitOriginType>
+                                        <OfferingKey>
+                                            <OfferingId>460487035</OfferingId>
+                                            <PurchaseSeq>1908131532</PurchaseSeq>
+                                        </OfferingKey>
+                                    </FreeUnitOrigin>
+                                    <RollOverFlag>N</RollOverFlag>
+                                </FreeUnitDetails>
+                            </FreeUnitDetails>
+                        </FreeUnitUsage>
+
+                        <FreeUnitUsage>
+                            <FreeUnitName>TED TOPUP Fixed Data</FreeUnitName>
+                            <FreeUnitType>C_TED_Topup_Fixed_Data</FreeUnitType>
+                            <UnitMeasurementId>1106</UnitMeasurementId>
+                            <UnitMeasurementName>MB</UnitMeasurementName>
+                            <UnitsInitialNumber>102400</UnitsInitialNumber>
+                            <UnitsUnUsedAmount>4933</UnitsUnUsedAmount>
+                            <FreeUnitDetails>
+                                <FreeUnitDetails>
+                                    <FreeUnitInstanceId>194100000004841983</FreeUnitInstanceId>
+                                    <FreeUnitInitialAmount>102400</FreeUnitInitialAmount>
+                                    <FreeUnitCurrentAmount>4933</FreeUnitCurrentAmount>
+                                    <EffectiveDate>20260125234534</EffectiveDate>
+                                    <ExpiryDate>20260224220000</ExpiryDate>
+                                    <FreeUnitOrigin>
+                                        <FreeUnitOriginType>1</FreeUnitOriginType>
+                                        <OfferingKey>
+                                            <OfferingId>620003</OfferingId>
+                                            <PurchaseSeq>201993904259036</PurchaseSeq>
+                                        </OfferingKey>
+                                    </FreeUnitOrigin>
+                                    <RollOverFlag>N</RollOverFlag>
+                                </FreeUnitDetails>
+                            </FreeUnitDetails>
+                        </FreeUnitUsage>
+
+                    </FreeUnitUsages>
+                </Subscriber>
+
+                <FreeUnitUsages>
+
+                    <FreeUnitUsage>
+                        <FreeUnitName>TED Primary Fixed Data</FreeUnitName>
+                        <FreeUnitType>C_TED_Primary_Fixed_Data</FreeUnitType>
+                        <UnitMeasurementId>1106</UnitMeasurementId>
+                        <UnitMeasurementName>MB</UnitMeasurementName>
+                        <UnitsInitialNumber>204800</UnitsInitialNumber>
+                        <UnitsUnUsedAmount>65877</UnitsUnUsedAmount>
+                        <FreeUnitDetails>
+                            <FreeUnitDetails>
+                                <FreeUnitInstanceId>194100000005408039</FreeUnitInstanceId>
+                                <FreeUnitInitialAmount>204800</FreeUnitInitialAmount>
+                                <FreeUnitCurrentAmount>65877</FreeUnitCurrentAmount>
+                                <EffectiveDate>20260131220000</EffectiveDate>
+                                <ExpiryDate>20260228220000</ExpiryDate>
+                                <FreeUnitOrigin>
+                                    <FreeUnitOriginType>1</FreeUnitOriginType>
+                                    <OfferingKey>
+                                        <OfferingId>460480697</OfferingId>
+                                        <PurchaseSeq>201993237886162</PurchaseSeq>
+                                    </OfferingKey>
+                                </FreeUnitOrigin>
+                                <RollOverFlag>N</RollOverFlag>
+                            </FreeUnitDetails>
+                        </FreeUnitDetails>
+                    </FreeUnitUsage>
+
+                    <FreeUnitUsage>
+                        <FreeUnitName>NEw FMC Units</FreeUnitName>
+                        <FreeUnitType>C_NEw_FMC_Units</FreeUnitType>
+                        <UnitMeasurementId>10000</UnitMeasurementId>
+                        <UnitMeasurementName>Unit</UnitMeasurementName>
+                        <UnitsInitialNumber>1200</UnitsInitialNumber>
+                        <UnitsUnUsedAmount>1118</UnitsUnUsedAmount>
+                        <FreeUnitDetails>
+                            <FreeUnitDetails>
+                                <FreeUnitInstanceId>194100000005408040</FreeUnitInstanceId>
+                                <FreeUnitInitialAmount>1200</FreeUnitInitialAmount>
+                                <FreeUnitCurrentAmount>1118</FreeUnitCurrentAmount>
+                                <EffectiveDate>20260131220000</EffectiveDate>
+                                <ExpiryDate>20260228220000</ExpiryDate>
+                                <FreeUnitOrigin>
+                                    <FreeUnitOriginType>1</FreeUnitOriginType>
+                                    <OfferingKey>
+                                        <OfferingId>460480697</OfferingId>
+                                        <PurchaseSeq>201993237886162</PurchaseSeq>
+                                    </OfferingKey>
+                                </FreeUnitOrigin>
+                                <RollOverFlag>N</RollOverFlag>
+                            </FreeUnitDetails>
+                        </FreeUnitDetails>
+                    </FreeUnitUsage>
+
+                    <FreeUnitUsage>
+                        <FreeUnitName>NEw FMC Units_Internet</FreeUnitName>
+                        <FreeUnitType>C_NEw_FMC_Units_Internet</FreeUnitType>
+                        <UnitMeasurementId>10000</UnitMeasurementId>
+                        <UnitMeasurementName>Unit</UnitMeasurementName>
+                        <UnitsInitialNumber>8445</UnitsInitialNumber>
+                        <UnitsUnUsedAmount>6787</UnitsUnUsedAmount>
+                        <FreeUnitDetails>
+
+                            <FreeUnitDetails>
+                                <FreeUnitInstanceId>194100000005410283</FreeUnitInstanceId>
+                                <FreeUnitInitialAmount>2813</FreeUnitInitialAmount>
+                                <FreeUnitCurrentAmount>2813</FreeUnitCurrentAmount>
+                                <EffectiveDate>20251231220000</EffectiveDate>
+                                <ExpiryDate>20260228220000</ExpiryDate>
+                                <FreeUnitOrigin/>
+                                <RollOverFlag>N</RollOverFlag>
+                                <RollOveredTime>20260131220000</RollOveredTime>
+                            </FreeUnitDetails>
+
+                            <FreeUnitDetails>
+                                <FreeUnitInstanceId>194100000005410281</FreeUnitInstanceId>
+                                <FreeUnitInitialAmount>5632</FreeUnitInitialAmount>
+                                <FreeUnitCurrentAmount>3974</FreeUnitCurrentAmount>
+                                <EffectiveDate>20260131220000</EffectiveDate>
+                                <ExpiryDate>20260228220000</ExpiryDate>
+                                <FreeUnitOrigin>
+                                    <FreeUnitOriginType>1</FreeUnitOriginType>
+                                    <OfferingKey>
+                                        <OfferingId>460480697</OfferingId>
+                                        <PurchaseSeq>201993237886162</PurchaseSeq>
+                                    </OfferingKey>
+                                </FreeUnitOrigin>
+                                <RollOverFlag>Y</RollOverFlag>
+                            </FreeUnitDetails>
+
+                        </FreeUnitDetails>
+                    </FreeUnitUsage>
+
+                    <FreeUnitUsage>
+                        <FreeUnitName>Shared Intra Voice Revamp</FreeUnitName>
+                        <FreeUnitType>C_Shared_Intra_Voice_Revamp</FreeUnitType>
+                        <UnitMeasurementId>1003</UnitMeasurementId>
+                        <UnitMeasurementName>Minutes</UnitMeasurementName>
+                        <UnitsInitialNumber>10000</UnitsInitialNumber>
+                        <UnitsUnUsedAmount>10000</UnitsUnUsedAmount>
+                        <FreeUnitDetails>
+                            <FreeUnitDetails>
+                                <FreeUnitInstanceId>194100000005410282</FreeUnitInstanceId>
+                                <FreeUnitInitialAmount>10000</FreeUnitInitialAmount>
+                                <FreeUnitCurrentAmount>10000</FreeUnitCurrentAmount>
+                                <EffectiveDate>20260131220000</EffectiveDate>
+                                <ExpiryDate>20260228220000</ExpiryDate>
+                                <FreeUnitOrigin>
+                                    <FreeUnitOriginType>1</FreeUnitOriginType>
+                                    <OfferingKey>
+                                        <OfferingId>460480697</OfferingId>
+                                        <PurchaseSeq>201993237886162</PurchaseSeq>
+                                    </OfferingKey>
+                                </FreeUnitOrigin>
+                                <RollOverFlag>N</RollOverFlag>
+                            </FreeUnitDetails>
+                        </FreeUnitDetails>
+                    </FreeUnitUsage>
+
+                </FreeUnitUsages>
+
+            </NS1:MemberGroup>
+        </NS1:ResponseBody>
+    </soapenv:Body>
+
+</soapenv:Envelope>
