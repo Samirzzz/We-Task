@@ -1,6 +1,7 @@
 using Application.DTOs;
+using basic.Application.shared;
 namespace basic.Domain.Interfaces{
     public interface IXmlService{
-        GroupResponseDto ParseGroupResponse(string xml);
+        Response<GroupResponseDto> ParseGroupResponse(string xml);
     }
 }

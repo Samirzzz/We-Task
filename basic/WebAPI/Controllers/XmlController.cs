@@ -39,7 +39,6 @@ namespace basic.WebAPI.Controllers
             var xmlContent = System.IO.File.ReadAllText(filePath);
             return Content(xmlContent, "application/xml");
         }
-[ServiceFilter(typeof(GroupRoleAuthFilter))]
 [HttpGet("parse-member-group")]
 public IActionResult ParseMemberGroupXml()
 {

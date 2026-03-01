@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Application.DTOs;
 using basic.Domain.Interfaces;
+using basic.Application.shared;
 namespace basic.Application.Services
 {
     public class XmlService : IXmlService
@@ -14,7 +15,7 @@ namespace basic.Application.Services
                 ? null
                 : DateTime.ParseExact(value, "yyyyMMddHHmmss", CultureInfo.InvariantCulture);
 
-        public GroupResponseDto ParseGroupResponse(string xml)
+        public Response<GroupResponseDto> ParseGroupResponse(string xml)
         {
             var dto = new GroupResponseDto();
 
@@ -126,7 +127,7 @@ if(freeUnitDetailsWrapper==null){
                 dto.FreeUnitUsages.Add(usageDto);
             }
 
-            return dto;
+            return new Response<GroupResponseDto>(message: "Group response parsed successfully", data: dto);
         }
     }
 }
