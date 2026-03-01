@@ -155,3 +155,4 @@ C:\Users\HP\Desktop\we train\basic\obj\Debug\net9.0\refint\basic.dll
 C:\Users\HP\Desktop\we train\basic\obj\Debug\net9.0\basic.pdb
 C:\Users\HP\Desktop\we train\basic\obj\Debug\net9.0\basic.genruntimeconfig.cache
 C:\Users\HP\Desktop\we train\basic\obj\Debug\net9.0\ref\basic.dll
+C:\Users\HP\Desktop\we train\basic\obj\Debug\net9.0\basic.sourcelink.json

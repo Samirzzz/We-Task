@@ -5,6 +5,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using basic.Application.shared;
+
 namespace basic.Application.Services
 {
     public class AuthService : IAuthService

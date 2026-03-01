@@ -9,6 +9,7 @@ using System.Globalization;
 using Application.DTOs;
 using basic.Application.Services;
 using basic.Domain.Interfaces;
+using basic.WebAPI.MiddleWare.Filters;
 namespace basic.WebAPI.Controllers
 {
    
@@ -38,6 +39,7 @@ namespace basic.WebAPI.Controllers
             var xmlContent = System.IO.File.ReadAllText(filePath);
             return Content(xmlContent, "application/xml");
         }
+[ServiceFilter(typeof(GroupRoleAuthFilter))]
 [HttpGet("parse-member-group")]
 public IActionResult ParseMemberGroupXml()
 {
