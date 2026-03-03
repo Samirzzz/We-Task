@@ -9,6 +9,7 @@ using System.Text;
 using basic.WebAPI.MiddleWare.Filters;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.OpenApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -84,6 +85,8 @@ builder.Services.AddScoped<IGroupRepository, EfGroupRepository>();
 builder.Services.AddScoped<IUserGroupsRepository, EfUserGroupsRepository>();
 builder.Services.AddScoped<IGroupRolesRepository, EfGroupRolesRepository>();
 builder.Services.AddScoped<IUserPermissionRepository, EfUserPermissionRepository>();
+builder.Services.AddScoped<IConsumptionService, ConsumptionService>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularClient", policy =>
