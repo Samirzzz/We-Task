@@ -29,7 +29,7 @@ public Response <List<ConsumptionDto>> ParseConsumption(string xml){
     }
     return new Response<List<ConsumptionDto>>(message: "Consumption parsed successfully", data: consumptions);
 }
-private static string DecodeBase64(string? value)
+public static string DecodeBase64(string? value)
 {
     if (string.IsNullOrEmpty(value))
     {

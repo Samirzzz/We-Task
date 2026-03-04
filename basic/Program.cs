@@ -86,6 +86,7 @@ builder.Services.AddScoped<IUserGroupsRepository, EfUserGroupsRepository>();
 builder.Services.AddScoped<IGroupRolesRepository, EfGroupRolesRepository>();
 builder.Services.AddScoped<IUserPermissionRepository, EfUserPermissionRepository>();
 builder.Services.AddScoped<IConsumptionService, ConsumptionService>();
+builder.Services.AddScoped<IAvtService, AvtService>();
 
 builder.Services.AddCors(options =>
 {
