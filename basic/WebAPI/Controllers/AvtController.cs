@@ -13,25 +13,40 @@ public class AvtController : ControllerBase{
         _env = env;
     }
     [HttpGet("getfbb")]
-    public IActionResult GetAvt(){
-        var files=new[]{"Fbb1.xml", "Fbb2.xml", "Gsm1.xml", "Gsm2.xml"};
-        var selectedFile=files[Random.Shared.Next(files.Length)];
-        var filePath = Path.Combine(_env.ContentRootPath, "Data", selectedFile);
+    public IActionResult GetFbb(){
+        var filePath = Path.Combine(_env.ContentRootPath, "Data", "Fbb1.xml");
         if(!System.IO.File.Exists(filePath))
         {
             return NotFound("XML file not found.");
         }
         var xmlContent = System.IO.File.ReadAllText(filePath);
-        if(selectedFile.Contains("Fbb"))
-        {
-            var dto = _avtService.GetFbb(xmlContent);
-            return Ok(dto);
-        }
-        else
-        {
-            var dto = _avtService.GetGsm(xmlContent);
-            return Ok(dto);
-        }
+        var dto = _avtService.GetFbb(xmlContent);
+        return Ok(dto);
     }
+
+
+
+
+        [HttpGet("getboth")]
+        public IActionResult GetAvt(){
+            var files=new[]{"Fbb1.xml", "Fbb2.xml", "Gsm1.xml", "Gsm2.xml"};
+            var selectedFile=files[Random.Shared.Next(files.Length)];
+            var filePath = Path.Combine(_env.ContentRootPath, "Data", selectedFile);
+            if(!System.IO.File.Exists(filePath))
+            {
+                return NotFound("XML file not found.");
+            }
+            var xmlContent = System.IO.File.ReadAllText(filePath);
+            if(selectedFile.Contains("Fbb"))
+            {
+                var dto = _avtService.GetFbb(xmlContent);
+                return Ok(dto);
+            }
+            else
+            {
+                var dto = _avtService.GetGsm(xmlContent);
+                return Ok(dto);
+            }
+        }
 }
 }

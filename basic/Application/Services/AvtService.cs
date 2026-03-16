@@ -13,7 +13,7 @@ namespace basic.Application.Services{
             var rows = doc.Descendants("Row").ToList();
             var fbb = new List<FbbDto>();
 
-            foreach (var row in rows)
+             foreach (var row in rows)
             {
                 var dto = new FbbDto
                 {
@@ -29,10 +29,40 @@ namespace basic.Application.Services{
                             .Select(cell => DecodeBase64(cell.Value))
                             .FirstOrDefault()
                         )
-                        ? null 
+                        ? null
                         : double.Parse(
                             row.Descendants("Cell")
                             .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:AVG_Handling_Time_Hours_Logical")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        ),
+
+                    Avg_Handling_Time_Hours_Other =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:AVG_Handling_Time_Hours_Other")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : double.Parse(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:AVG_Handling_Time_Hours_Other")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        ),
+
+                    Avg_Handling_Time_Hours_Physical =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:AVG_Handling_Time_Hours_Physical")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : double.Parse(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:AVG_Handling_Time_Hours_Physical")
                             .Select(cell => DecodeBase64(cell.Value))
                             .FirstOrDefault()
                         ),
@@ -48,6 +78,90 @@ namespace basic.Application.Services{
                         : int.Parse(
                             row.Descendants("Cell")
                             .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Count_of_Logical_Tickets")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        ),
+
+                    Count_of_Other_Tickets =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Count_of_Other_Tickets")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : int.Parse(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Count_of_Other_Tickets")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        ),
+
+                    Count_of_Physical_Tickets =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Count_of_Physical_Tickets")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : int.Parse(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Count_of_Physical_Tickets")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        ),
+
+                    Most_Frequent_Problem_Logical =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Most_Frequent_Problem_Logical")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Most_Frequent_Problem_Logical")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault(),
+
+                    Most_Frequent_Problem_Other =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Most_Frequent_Problem_Other")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Most_Frequent_Problem_Other")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault(),
+
+                    Most_Frequent_Problem_Physical =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Most_Frequent_Problem_Physical")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Most_Frequent_Problem_Physical")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault(),
+
+                    Total_Count_of_Tickets =
+                        string.IsNullOrEmpty(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Total_Count_of_Tickets")
+                            .Select(cell => DecodeBase64(cell.Value))
+                            .FirstOrDefault()
+                        )
+                        ? null
+                        : int.Parse(
+                            row.Descendants("Cell")
+                            .Where(cell => DecodeBase64(cell.Attribute("column")?.Value) == "i:Total_Count_of_Tickets")
                             .Select(cell => DecodeBase64(cell.Value))
                             .FirstOrDefault()
                         ),
@@ -67,16 +181,16 @@ namespace basic.Application.Services{
                 var dto=new GsmDto{
                 SUBS_ID=row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:SUBS_ID").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()??throw new Exception("SUBS_ID not found"),
                 
-                Avg_Handling_Time_Hours_Complaint=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Complaint").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Complaint").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
+                Avg_Handling_Time_Hours_Complaint=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Complaint").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Complaint").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
     
    
-                Avg_Handling_Time_Hours_Outbound=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Outbound").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Outbound").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
+                Avg_Handling_Time_Hours_Outbound=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Outbound").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Outbound").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
     
-                Avg_Handling_Time_Hours_Problem=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Problem").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Problem").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
+                Avg_Handling_Time_Hours_Problem=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Problem").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Problem").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
     
-    Avg_Handling_Time_Hours_Request=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Request").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Request").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
+    Avg_Handling_Time_Hours_Request=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Request").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Request").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
     
-                Avg_Handling_Time_Hours_Voice_of_Customer=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Voice_of_Customer").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Avg_Handling_Time_Hours_Voice_of_Customer").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
+                Avg_Handling_Time_Hours_Voice_of_Customer=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Voice_of_Customer").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:double.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:AVG_Handling_Time_Hours_Voice_of_Customer").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
     
     Count_of_Complaint_Tickets=String.IsNullOrEmpty(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Count_of_Complaint_Tickets").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault())?null:int.Parse(row.Descendants("Cell").Where(cell=>DecodeBase64(cell.Attribute("column")?.Value)=="i:Count_of_Complaint_Tickets").Select(cell=>DecodeBase64(cell.Value)).FirstOrDefault()),
     
